@@ -3,12 +3,10 @@ package com.javagrunt.web.services;
 import com.javagrunt.web.views.videos.Video;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.boot.web.client.RestTemplateCustomizer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.hateoas.config.HypermediaRestTemplateConfigurer;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Objects;
 
 @Service
 public class YouTubeService {
@@ -19,7 +17,7 @@ public class YouTubeService {
     }
 
     public Video[] getAll() {
-        return restTemplate.getForObject("/youTubeVideos", Video[].class);
+        return Objects.requireNonNull(restTemplate.getForObject("/api/youTubeVideos", Video[].class));
     }
 
     public Boolean isHealthy() {

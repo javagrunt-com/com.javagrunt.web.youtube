@@ -59,7 +59,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        H1 appName = new H1("YouTube Analysis Assistant");
+        H1 appName = new H1("Channel Manager");
         appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
         Header header = new Header(appName);
 

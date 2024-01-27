@@ -19,6 +19,7 @@ import org.springframework.context.annotation.Bean;
  * and some desktop browsers.
  *
  */
+
 @SpringBootApplication
 @Theme(value = "youtube", variant = Lumo.DARK)
 @Push

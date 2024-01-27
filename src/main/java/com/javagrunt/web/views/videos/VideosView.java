@@ -43,7 +43,7 @@ public class VideosView extends Div implements AfterNavigationObserver {
         card.getThemeList().add("spacing-s");
 
         Image image = new Image();
-        image.setSrc(video.thumbnail());
+        image.setSrc(video.getThumbnail());
         VerticalLayout description = new VerticalLayout();
         description.addClassName("description");
         description.setSpacing(false);
@@ -54,13 +54,13 @@ public class VideosView extends Div implements AfterNavigationObserver {
         header.setSpacing(false);
         header.getThemeList().add("spacing-s");
 
-        Span name = new Span(video.title());
+        Span name = new Span(video.getTitle());
         name.addClassName("name");
-        Span date = new Span(video.date());
+        Span date = new Span(video.getDate());
         date.addClassName("date");
         header.add(name, date);
 
-        Span post = new Span(video.description());
+        Span post = new Span(video.getDescription());
         post.addClassName("post");
 
         HorizontalLayout actions = new HorizontalLayout();
@@ -70,15 +70,15 @@ public class VideosView extends Div implements AfterNavigationObserver {
 
         Icon likeIcon = VaadinIcon.HEART.create();
         likeIcon.addClassName("icon");
-        Span likes = new Span(video.likes());
+        Span likes = new Span(video.getLikes());
         likes.addClassName("likes");
         Icon commentIcon = VaadinIcon.COMMENT.create();
         commentIcon.addClassName("icon");
-        Span comments = new Span(video.comments());
+        Span comments = new Span(video.getComments());
         comments.addClassName("comments");
         Icon shareIcon = VaadinIcon.CONNECT.create();
         shareIcon.addClassName("icon");
-        Span shares = new Span(video.shares());
+        Span shares = new Span(video.getShares());
         shares.addClassName("shares");
 
         actions.add(likeIcon, likes, commentIcon, comments, shareIcon, shares);
@@ -90,8 +90,8 @@ public class VideosView extends Div implements AfterNavigationObserver {
 
     @Override
     public void afterNavigation(AfterNavigationEvent event) {
-//        Video[] videos = youTubeService.getAll();
-//        grid.setItems(videos);
+        Video[] videos = youTubeService.getAll();
+        grid.setItems(videos);
     }
 
 }
