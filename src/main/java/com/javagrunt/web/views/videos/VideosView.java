@@ -2,6 +2,7 @@ package com.javagrunt.web.views.videos;
 
 import com.javagrunt.web.services.YouTubeService;
 import com.javagrunt.web.views.MainLayout;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
@@ -82,6 +83,11 @@ public class VideosView extends Div implements AfterNavigationObserver {
         shares.addClassName("shares");
 
         actions.add(likeIcon, likes, commentIcon, comments, shareIcon, shares);
+
+        if(video.getTitle().startsWith("#javagrunt")) {
+            Button regenerate = new Button("Generate");
+            actions.add(regenerate);
+        }
 
         description.add(header, post, actions);
         card.add(image, description);
